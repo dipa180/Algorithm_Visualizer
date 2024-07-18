@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">INSERTION SORT</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Insertion sort is a simple sorting algorithm that works by iteratively inserting each element of an unsorted list into its correct position in a sorted portion of the list. It is a stable sorting algorithm, meaning that elements with equal values maintain their relative order in the sorted output. It is considered an ” in-place ” sorting algorithm, meaning it doesn’t require any additional memory space beyond the original array.</div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+                import java.util.*;
+
+                public class InsertionSort {
+                    static void insertion_sort(int[] arr, int n) {
+                        for (int i = 0; i <= n - 1; i++) {
+                            int j = i;
+                            while (j > 0 && arr[j - 1] > arr[j]) {
+                                int temp = arr[j - 1];
+                                arr[j - 1] = arr[j];
+                                arr[j] = temp;
+                                j--;
+                            }
+                        }
+                
+                        System.out.println("After insertion sort: ");
+                        for (int i = 0; i < n; i++) {
+                            System.out.print(arr[i] + " ");
+                        }
+                        System.out.println();
+                    }
+                    public static void main(String args[]) {
+                        int arr[] = {13, 46, 24, 52, 20, 9};
+                        int n = arr.length;
+                        System.out.println("Before Using insertion Sort: ");
+                        for (int i = 0; i < n; i++) {
+                            System.out.print(arr[i] + " ");
+                        }
+                        System.out.println();
+                        insertion_sort(arr, n);
+                    }
+                
+                }  
+            </pre></code>
+        </div>
+    </div>
+
+   
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p> O(N2) for the worst and average cases and O(N) for the best case. Here, N = size of the array.</p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(1)</p></h2>
+     </div>
+
+</body>
+</html>

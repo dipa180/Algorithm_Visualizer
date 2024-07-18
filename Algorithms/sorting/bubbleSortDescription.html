@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">BUBBLE SORT</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.</div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+                import java.util.*;
+                public class BubbleSort {
+                static void bubble_sort(int[] arr, int n) {
+                    for (int i = n - 1; i >= 0; i--) {
+                        int didSwap = 0;
+                        for (int j = 0; j <= i - 1; j++) {
+                            if (arr[j] > arr[j + 1]) {
+                                int temp = arr[j];
+                                arr[j] = arr[j + 1];
+                                arr[j + 1] = temp;
+                                didSwap = 1;
+                            }
+                        }
+                        if (didSwap == 0) {
+                            break;
+                        }
+                    }
+                    System.out.println("After bubble sort: ");
+                    for (int i = 0; i < n; i++) {
+                        System.out.print(arr[i] + " ");
+                    }
+                    System.out.println();
+                }
+                public static void main(String args[]) {
+                    int arr[] = {13, 46, 24, 52, 20, 9};
+                    int n = arr.length;
+                    System.out.println("Before Using Bubble Sort: ");
+                    for (int i = 0; i < n; i++) {
+                        System.out.print(arr[i] + " ");
+                    }
+                    System.out.println();
+                    bubble_sort(arr, n);
+                }
+            }
+            </pre></code>
+        </div>
+    </div>
+
+    <!-- Process -->
+     <!-- <div class="process">
+        <h2 class="working">Working of Bubble Sort Algorithm</h2>
+        <img src="assets/bubblesort/phase1.png" alt="phaseImage" class="image"><br><br>
+        <img src="assets/bubblesort/phase2.png" alt="phaseImage" class="image"><br><br>
+        <img src="assets/bubblesort/phase3.png" alt="phaseImage" class="image"><br><br>
+        <img src="assets/bubblesort/phase4.png" alt="phaseImage" class="image"><br><br>
+        <img src="assets/bubblesort/phase5.png" alt="phaseImage" class="image">
+     </div> -->
+
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p> O(N2) for the worst and average cases and O(N) for the best case. Here, N = size of the array.</p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(1)</p></h2>
+     </div>
+
+</body>
+</html>

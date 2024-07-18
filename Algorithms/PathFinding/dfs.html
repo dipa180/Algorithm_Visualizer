@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">Depth First Traversal(DFS)</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Depth First Traversal (DFS) for a graph is similar to Depth First Traversal of a tree. The only catch here is, that, unlike trees, graphs may contain cycles (a node may be visited twice). To avoid processing a node more than once, use a boolean visited array. A graph can have more than one DFS traversal.
+        </div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+                // Java program to print DFS traversal
+                // from a given graph
+                import java.io.*;
+                import java.util.*;
+
+                // This class represents a
+                // directed graph using adjacency
+                // list representation
+                class Graph {
+                    private int V;
+
+                    // Array  of lists for
+                    // Adjacency List Representation
+                    private LinkedList<Integer> adj[];
+
+                    // Constructor
+                    @SuppressWarnings("unchecked") Graph(int v)
+                    {
+                        V = v;
+                        adj = new LinkedList[v];
+                        for (int i = 0; i < v; ++i)
+                            adj[i] = new LinkedList();
+                    }
+
+                    // Function to add an edge into the graph
+                    void addEdge(int v, int w)
+                    {
+                        // Add w to v's list.
+                        adj[v].add(w);
+                    }
+
+                    // A function used by DFS
+                    void DFSUtil(int v, boolean visited[])
+                    {
+                        // Mark the current node as visited and print it
+                        visited[v] = true;
+                        System.out.print(v + " ");
+
+                        // Recur for all the vertices adjacent to this
+                        // vertex
+                        Iterator<Integer> i = adj[v].listIterator();
+                        while (i.hasNext()) {
+                            int n = i.next();
+                            if (!visited[n])
+                                DFSUtil(n, visited);
+                        }
+                    }
+
+                    // The function to do DFS traversal.
+                    // It uses recursive DFSUtil()
+                    void DFS(int v)
+                    {
+                        // Mark all the vertices as
+                        // not visited(set as
+                        // false by default in java)
+                        boolean visited[] = new boolean[V];
+
+                        // Call the recursive helper
+                        // function to print DFS
+                        // traversal
+                        DFSUtil(v, visited);
+                    }
+
+                    // Driver Code
+                    public static void main(String args[])
+                    {
+                        Graph g = new Graph(4);
+
+                        g.addEdge(0, 1);
+                        g.addEdge(0, 2);
+                        g.addEdge(1, 2);
+                        g.addEdge(2, 0);
+                        g.addEdge(2, 3);
+                        g.addEdge(3, 3);
+
+                        System.out.println(
+                            "Following is Depth First Traversal "
+                            + "(starting from vertex 2)");
+
+                        // Function call
+                        g.DFS(2);
+                    }
+                }
+                // This code is contributed by Aakash Hasija
+
+            </pre></code>
+        </div>
+    </div>
+
+    
+
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p> tO(V+E), where V is the number of nodes and E is the number of edges.</p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(V+E)</p></h2>
+     </div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">SELECTION SORT</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Selection sort is a simple and efficient sorting algorithm that works by repeatedly selecting the smallest (or largest) element from the unsorted portion of the list and moving it to the sorted portion of the list.</div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+                import java.util.*;
+                public class SelectionSort {
+                    static void selection_sort(int arr[], int n) {
+                        for (int i = 0; i < n - 1; i++) {
+                            int mini = i;
+                            for (int j = i + 1; j < n; j++) {
+                                if (arr[j] < arr[mini]) {
+                                    mini = j;
+                                }
+                            }
+                            //swap
+                            int temp = arr[mini];
+                            arr[mini] = arr[i];
+                            arr[i] = temp;
+                        }
+                        System.out.println("After selection sort:");
+                        for (int i = 0; i < n; i++) {
+                            System.out.print(arr[i] + " ");
+                        }
+                        System.out.println();
+                    }
+                    public static void main(String args[]) {
+
+                        int arr[] = {13, 46, 24, 52, 20, 9};
+                        int n = arr.length;
+                        System.out.println("Before selection sort:");
+                        for (int i = 0; i < n; i++) {
+                            System.out.print(arr[i] + " ");
+                        }
+                        System.out.println();
+                        selection_sort(arr, n);
+                    }
+                }
+            </pre></code>
+        </div>
+    </div>
+
+    
+
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p> O(N2), (where N = size of the array), for the best, worst, and average cases.</p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(1)</p></h2>
+     </div>
+
+</body>
+</html>

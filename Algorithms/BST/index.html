@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Binary Search Tree</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="header">
+        <div id="OperationContainer">
+          <input type="text" id="InsertNodeField" placeholder="Enter the number"/>
+          <button type="button" id="InsertButton" class="button">Insert</button>
+          <input type="text" id="DeleteNodeField" placeholder="Enter the number"/>
+          <button type="button" id="DeleteButton" class="button">Delete</button>
+        </div>
+        <a href="/index.html"><div id="title">Binary Search Tree</div></a>
+        <a href="bst.html" target="_blank"><button class="button" id="description">Description</button></a>
+
+        <div class="home">
+          <a href="/ALGORITHM VISUALIZER(DIP)/Algorithm Visualizer/index.html"><i class="fas fa-house" id="home"></i></a>
+        </div>
+
+      </div>
+
+      <div class="Canvas">
+        <div class="indicator">
+          <svg>
+            <g class="link">
+              <line stroke-width="4" stroke="black" x1="10" y1="25" x2="40" y2="25"></line>
+              <text dx="50" dy="32" fill="white" font-weight="bold">Edge</text>
+            </g>
+            <g class="node">
+              <circle id="nodeIndicator" r="15" cx="25" cy="70" value="root"></circle>
+              <text dx="50" dy="77" fill="white" font-weight="bold">Node</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- D3.JS -->>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

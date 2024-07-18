@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">LINEAR SEARCH</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Linear Search is a method for searching an element in a collection of elements. In Linear Search, each element of the collection is visited one by one in a sequential fashion to find the desired element. Linear Search is also known as Sequential Search.</div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+            import java.io.*;
+            class LinearSearch {
+                public static int search(int arr[], int N, int x)
+                {
+                    for (int i = 0; i < N; i++) {
+                        if (arr[i] == x)
+                            return i;
+                    }
+                    return -1;
+                }
+                // Driver code
+                public static void main(String args[])
+                {
+                    int arr[] = { 2, 3, 4, 10, 40 };
+                    int x = 10
+                    // Function call
+                    int result = search(arr, arr.length, x);
+                    if (result == -1)
+                        System.out.print(
+                            "Element is not present in array");
+                    else
+                        System.out.print("Element is present at index " + result);
+                }
+            }
+            </pre></code>
+        </div>
+    </div>
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p> O(N) { At the worst case, the whole array would be traversed i.e N elements }.</p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(1) { There is no extra space being used in this approach }.</p></h2>
+     </div>
+
+</body>
+</html>

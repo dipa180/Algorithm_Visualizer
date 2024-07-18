@@ -1,0 +1,236 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+  }
+  
+  body{
+    background-color: #063750ab;
+  }
+ 
+  
+  .container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  #header {
+    margin-top: 5px;
+    width: 100%;
+    flex: 0 1 70px;
+    height: 70px;
+    overflow: hidden;
+    background-color: #05254ab3;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 2px 2px 100px 5px rgba(10, 185, 185, 0.623);
+  }
+  #title {
+    text-align: center;
+    font-size: 27px;
+    color: rgb(255, 255, 255);
+    padding-top: 20px;
+    font-weight: bold;
+  }
+  
+  #OperationContainer {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+  
+  /* .button {
+    width: 55px;
+  } */
+  .button {
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    background: #161824;
+    letter-spacing: 1.2px;
+    position:relative;
+    z-index: 0;
+    
+    /* transition: all 0.25s ease-in-out;
+    outline: none;
+    border-top: 2px solid rgba(150, 231, 231, 0.767);
+    border-left: 2px solid rgb(186, 62, 217);
+    border-bottom: 1px solid rgba(150, 231, 231, 0.968);  */
+  }
+   .button:hover{
+    transform: scale(1.08) perspective(1px);
+    cursor: pointer;
+   }
+  .button::before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000ab, #ff7300ca, #fffb00, #48ff00, #8cffec, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(4px);
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    animation: glowing 20s linear infinite;
+    background-size: 400%;
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button:active {
+    color:  #000
+}
+
+.button:active::after {
+    background: transparent;
+}
+.button::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+  #InsertNodeField,
+  #DeleteNodeField {
+    width: 140px;
+    height:35px;
+    margin-right: 2px;
+    background-color: #000;
+    color:white;
+    border-radius: 8px;
+    /* margin: 4px; */
+    border-top: 2px solid rgba(150, 231, 231, 0.995);
+    border-left: 2px solid rgb(186, 62, 217);
+    border-bottom: 1px solid rgb(10, 225, 225);  
+  }
+  #DeleteNodeField{
+    margin-left: 30px;
+  }
+  #DeleteNodeField:hover{
+    background-color: #ffffff;
+    color:black;
+  }
+  #InsertNodeField:hover{
+    background-color: #ffffff;
+    color:black;
+  }
+
+  #description{
+    position: absolute;
+    left:85%;
+    top:10px;
+    background-color:black ;
+    color:white;
+    width:90px;
+    height:30px;
+  }
+  .Canvas {
+    margin-top: 6px;
+    width: 100%;
+    flex: 1 1 auto;
+    background-color: #042737c2;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border-radius: 8px;
+    border-top: 4px solid rgba(150, 231, 231, 0.995);
+    border-left: 2px solid rgb(186, 62, 217);
+    border-bottom: 1px solid rgb(10, 225, 225);
+  }
+  
+  .indicator {
+    position: absolute;
+  }
+  .indicator text {
+    font-size: 20px !important;
+  }
+  
+  svg {
+    margin-top: 5px;
+    width: 100%;
+    /* max-width: 1200px; */
+    height: 100%;
+    overflow: scroll;
+  }
+  
+  .node circle {
+    fill: #1aba6f;
+    /* fill-opacity: 0.6; */
+    stroke: #0ddbff;
+    stroke-width: 2px;
+  }
+  .node text {
+    font-size: 22px;
+    fill: #ffffff;
+  }
+  
+  .highlightedNode circle {
+    fill: rgb(13, 49, 141);
+    stroke: rgb(137, 175, 245);
+    stroke-width: 1px;
+  }
+  
+  .null-node,
+  .null-link {
+    visibility: hidden;
+  }
+  
+  line {
+    stroke: #ffffff;
+  }
+  
+  .LinkAnimation {
+    stroke: rgb(139, 237, 183);
+    stroke-dasharray: 500;
+    animation: filling 1s linear forwards;
+  }
+
+  @keyframes filling {
+    from {
+      stroke-dashoffset: 500;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @media(max-width:900px){
+    #title{
+      font-size:0px;
+    }
+  }
+  #home{
+    font-size: 20px;
+    position:absolute;
+    right: 1rem;
+    top: 1.4rem;
+    color:#e5f0fe;
+  }

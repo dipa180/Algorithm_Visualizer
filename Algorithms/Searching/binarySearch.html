@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">BINARY SEARCH</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Binary search is a search algorithm used to find the position of a target value within a sorted array. It works by repeatedly dividing the search interval in half until the target value is found or the interval is empty. The search interval is halved by comparing the target element with the middle value of the search space.
+        <pre>To apply Binary Search algorithm:
+                The data structure must be sorted.
+                Access to any element of the data structure should take constant time.</pre>
+        </div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+            import java.util.*;
+            public class BinarySearch {
+                public static int binarySearch(int[] nums, int target) {
+                    int n = nums.length; //size of the array.
+                    int low = 0, high = n - 1;
+                    // Perform the steps:
+                    while (low <= high) {
+                        int mid = (low + high) / 2;
+                        if (nums[mid] == target) return mid;
+                        else if (target > nums[mid]) low = mid + 1;
+                        else high = mid - 1;
+                    }
+                    return -1;
+                }
+                public static void main(String[] args) {
+                    int[] a = {3, 4, 6, 7, 9, 12, 16, 17};
+                    int target = 6;
+                    int ind = binarySearch(a, target);
+                    if (ind == -1)
+                        System.out.println("The target is not present.");
+                    else
+                        System.out.println("The target is at index: " + ind);
+                }
+            } 
+            </pre></code>
+        </div>
+    </div>
+
+    
+
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p> time complexity is O(logN), where N = size of the given array.</p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(1)</p></h2>
+     </div>
+
+</body>
+</html>

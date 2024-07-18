@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Description</title>
+    <link rel="stylesheet" href="description.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Heading Part -->
+    <div class="heading">
+        <h1 class="title">Dijkstra's Algorithm</h1>
+    </div>
+
+    <!-- Definition -->
+    <div class="definitionCode">
+        <div class="definition">Dijkstra's Algorithm is a Graph algorithm that finds the shortest path from a source vertex to all other vertices in the Graph (single source shortest path). It is a type of Greedy Algorithm that only works on Weighted Graphs having positive weights. The time complexity of Dijkstra's Algorithm is O(V2) with the help of the adjacency matrix representation of the graph. This time complexity can be reduced to O((V + E) log V) with the help of an adjacency list representation of the graph, where V is the number of vertices and E is the number of edges in the graph.
+        </div>
+
+        <!--Java Code-->
+        <div class="javaCode">
+            <h2 id="javaimplemetation">CODE IN JAVA</h2>
+            <pre><code class="java">
+                // Dijkstra's Algorithm in Java
+                public class Dijkstra {   
+                  public static void dijkstra(int[][] graph, int source) {
+                    int count = graph.length;
+                    boolean[] visitedVertex = new boolean[count];
+                    int[] distance = new int[count];
+                    for (int i = 0; i < count; i++) {
+                      visitedVertex[i] = false;
+                      distance[i] = Integer.MAX_VALUE;
+                    }
+                    // Distance of self loop is zero
+                    distance[source] = 0;
+                    for (int i = 0; i < count; i++) {
+                      // Update the distance between neighbouring vertex and source vertex
+                      int u = findMinDistance(distance, visitedVertex);
+                      visitedVertex[u] = true;
+                      // Update all the neighbouring vertex distances
+                      for (int v = 0; v < count; v++) {
+                        if (!visitedVertex[v] && graph[u][v] != 0 && (distance[u] + graph[u][v] < distance[v])) {
+                          distance[v] = distance[u] + graph[u][v];
+                        }
+                      }
+                    }
+                    for (int i = 0; i < distance.length; i++) {
+                      System.out.println(String.format("Distance from %s to %s is %s", source, i, distance[i]));
+                    }
+                  }
+                  // Finding the minimum distance
+                  private static int findMinDistance(int[] distance, boolean[] visitedVertex) {
+                    int minDistance = Integer.MAX_VALUE;
+                    int minDistanceVertex = -1;
+                    for (int i = 0; i < distance.length; i++) {
+                      if (!visitedVertex[i] && distance[i] < minDistance) {
+                        minDistance = distance[i];
+                        minDistanceVertex = i;
+                      }
+                    }
+                    return minDistanceVertex;
+                  }
+                  public static void main(String[] args) {
+                    int graph[][] = new int[][] { { 0, 0, 1, 2, 0, 0, 0 }, { 0, 0, 2, 0, 0, 3, 0 }, { 1, 2, 0, 1, 3, 0, 0 },
+                        { 2, 0, 1, 0, 0, 0, 1 }, { 0, 0, 3, 0, 0, 2, 0 }, { 0, 3, 0, 0, 2, 0, 1 }, { 0, 0, 0, 1, 0, 1, 0 } };
+                    Dijkstra T = new Dijkstra();
+                    T.dijkstra(graph, 0);
+                  }
+                }
+            </pre></code>
+        </div>
+    </div>
+
+    
+
+     <!-- Time and Space Complexity -->
+     <div class="complexity">
+        <h2 class="timeComplexity">Time Complexity: <p>O(E Log V) where, E is the number of edges and V is the number of vertices.  
+           </p></h2>
+
+        <h2 class="spaceComplexity">Space Complexity: <p>O(V)</p></h2>
+     </div>
+
+</body>
+</html>
