@@ -10,13 +10,7 @@
   a {
     text-decoration: none;
   }
-  #home{
-    font-size: 20px;
-    position:absolute;
-    right: 1rem;
-    top: 1.6rem;
-    color:#f5f6f9;
-  }
+  
 
   #header {
     overflow: hidden;
